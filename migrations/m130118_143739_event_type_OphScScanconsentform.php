@@ -8,7 +8,7 @@ class m130118_143739_event_type_OphScScanconsentform extends CDbMigration
 		// create an event_type entry for this event type name if one doesn't already exist
 		if (!$this->dbConnection->createCommand()->select('id')->from('event_type')->where('class_name=:class_name', array(':class_name'=>'OphScScanconsentform'))->queryRow()) {
 			$group = $this->dbConnection->createCommand()->select('id')->from('event_group')->where('name=:name',array(':name'=>'Scans'))->queryRow();
-			$this->insert('event_type', array('class_name' => 'OphScScanconsentform', 'name' => 'Scan: consent form','event_group_id' => $group['id']));
+			$this->insert('event_type', array('class_name' => 'OphScScanconsentform', 'name' => 'Scan: Consent form','event_group_id' => $group['id']));
 		}
 		// select the event_type id for this event type name
 		$event_type = $this->dbConnection->createCommand()->select('id')->from('event_type')->where('class_name=:class_name', array(':class_name'=>'OphScScanconsentform'))->queryRow();
